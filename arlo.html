@@ -1,0 +1,1135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module arlo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>arlo</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Cdocuments%5Cpython%20scripts%5Carlo%5Carlo.py">d:\documents\python scripts\arlo\arlo.py</a></font></td></tr></table>
+    <p><tt>Copyright&nbsp;2016&nbsp;Jeffrey&nbsp;D.&nbsp;Walter<br>
+&nbsp;<br>
+Licensed&nbsp;under&nbsp;the&nbsp;Apache&nbsp;License,&nbsp;Version&nbsp;2.0&nbsp;(the&nbsp;"License");<br>
+you&nbsp;may&nbsp;not&nbsp;use&nbsp;this&nbsp;file&nbsp;except&nbsp;in&nbsp;compliance&nbsp;with&nbsp;the&nbsp;License.<br>
+You&nbsp;may&nbsp;obtain&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;License&nbsp;at<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;<a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a><br>
+&nbsp;<br>
+Unless&nbsp;required&nbsp;by&nbsp;applicable&nbsp;law&nbsp;or&nbsp;agreed&nbsp;to&nbsp;in&nbsp;writing,&nbsp;software<br>
+distributed&nbsp;under&nbsp;the&nbsp;License&nbsp;is&nbsp;distributed&nbsp;on&nbsp;an&nbsp;"AS&nbsp;ISBASIS,<br>
+WITHOUT&nbsp;WARRANTIES&nbsp;OR&nbsp;CONDITIONS&nbsp;OF&nbsp;ANY&nbsp;KIND,&nbsp;either&nbsp;express&nbsp;or&nbsp;implied.<br>
+See&nbsp;the&nbsp;License&nbsp;for&nbsp;the&nbsp;specific&nbsp;language&nbsp;governing&nbsp;permissions&nbsp;and<br>
+limitations&nbsp;under&nbsp;the&nbsp;License.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="base64.html">base64</a><br>
+<a href="calendar.html">calendar</a><br>
+<a href="json.html">json</a><br>
+<a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="pickle.html">pickle</a><br>
+<a href="queue.html">queue</a><br>
+<a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="requests.html">requests</a><br>
+<a href="signal.html">signal</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="arlo.html#Arlo">Arlo</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Arlo">class <strong>Arlo</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Arlo">Arlo</a>(username,&nbsp;password,&nbsp;google_credential_file=None)<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Arlo-AddFriend"><strong>AddFriend</strong></a>(self, firstname, lastname, email, devices={}, admin=False)</dt><dd><tt>This&nbsp;API&nbsp;will&nbsp;send&nbsp;an&nbsp;email&nbsp;to&nbsp;a&nbsp;user&nbsp;and&nbsp;if&nbsp;they&nbsp;accept,&nbsp;will&nbsp;give&nbsp;them&nbsp;access&nbsp;to&nbsp;the&nbsp;devices&nbsp;you&nbsp;specify.<br>
+NOTE:&nbsp;XXX-XXXXXXX_XXXXXXXXXXXX&nbsp;is&nbsp;the&nbsp;uniqueId&nbsp;field&nbsp;in&nbsp;your&nbsp;device&nbsp;<a href="builtins.html#object">object</a>.<br>
+&nbsp;<br>
+{adminUser:false,firstName:John,lastName:Doe,email:john.doe@example.com,devices:{XXX-XXXXXXX_XXXXXXXXXXXX:Camera1,XXX-XXXXXXX_XXXXXXXXXXXX:Camera2}}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-AdjustBrightness"><strong>AdjustBrightness</strong></a>(self, basestation, camera, brightness=0)</dt><dd><tt>NOTE:&nbsp;Brightness&nbsp;is&nbsp;between&nbsp;-2&nbsp;and&nbsp;2&nbsp;in&nbsp;increments&nbsp;of&nbsp;1&nbsp;(-2,&nbsp;-1,&nbsp;0,&nbsp;1,&nbsp;2).<br>
+Setting&nbsp;it&nbsp;to&nbsp;an&nbsp;invalid&nbsp;value&nbsp;has&nbsp;no&nbsp;effect.<br>
+&nbsp;<br>
+Returns:<br>
+{<br>
+&nbsp;&nbsp;"action":&nbsp;"is",<br>
+&nbsp;&nbsp;"from":&nbsp;"XXXXXXXXXXXXX",<br>
+&nbsp;&nbsp;"properties":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"brightness":&nbsp;-2<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"resource":&nbsp;"cameras/XXXXXXXXXXXXX",<br>
+&nbsp;&nbsp;"to":&nbsp;"336-XXXXXXX_web",<br>
+&nbsp;&nbsp;"transId":&nbsp;"web!XXXXXXXX.389518!1514956240683"<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-AlertNotificationMethods"><strong>AlertNotificationMethods</strong></a>(self, basestation, action='disabled', email=False, push=False)</dt><dd><tt>action&nbsp;:&nbsp;disabled&nbsp;OR&nbsp;recordSnapshot&nbsp;OR&nbsp;recordVideo</tt></dd></dl>
+
+<dl><dt><a name="Arlo-Arm"><strong>Arm</strong></a>(self, device)</dt></dl>
+
+<dl><dt><a name="Arlo-BatchDeleteRecordings"><strong>BatchDeleteRecordings</strong></a>(self, recordings)</dt><dd><tt>Delete&nbsp;a&nbsp;batch&nbsp;of&nbsp;video&nbsp;recordings&nbsp;from&nbsp;<a href="#Arlo">Arlo</a>.<br>
+&nbsp;<br>
+The&nbsp;<a href="#Arlo-GetLibrary">GetLibrary</a>()&nbsp;call&nbsp;response&nbsp;json&nbsp;can&nbsp;be&nbsp;passed&nbsp;directly&nbsp;to&nbsp;this&nbsp;method&nbsp;if&nbsp;you'd&nbsp;like&nbsp;to&nbsp;delete&nbsp;the&nbsp;same&nbsp;list&nbsp;of&nbsp;videos&nbsp;you&nbsp;queried&nbsp;for.<br>
+If&nbsp;you&nbsp;want&nbsp;to&nbsp;delete&nbsp;some&nbsp;other&nbsp;batch&nbsp;of&nbsp;videos,&nbsp;then&nbsp;you&nbsp;need&nbsp;to&nbsp;send&nbsp;an&nbsp;array&nbsp;of&nbsp;objects&nbsp;representing&nbsp;each&nbsp;video&nbsp;you&nbsp;want&nbsp;to&nbsp;delete.<br>
+&nbsp;<br>
+[<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"createdDate":"20160904",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"utcCreatedDate":1473010280395,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"deviceId":"XXXXXXXXXXXXX"<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"createdDate":"20160904",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"utcCreatedDate":1473010280395,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"deviceId":"XXXXXXXXXXXXX"<br>
+&nbsp;&nbsp;}<br>
+]</tt></dd></dl>
+
+<dl><dt><a name="Arlo-Calendar"><strong>Calendar</strong></a>(self, basestation, active=True)</dt><dd><tt>DEPRECATED:&nbsp;This&nbsp;API&nbsp;appears&nbsp;to&nbsp;still&nbsp;do&nbsp;stuff,&nbsp;but&nbsp;I&nbsp;don't&nbsp;see&nbsp;it&nbsp;called&nbsp;in&nbsp;the&nbsp;web&nbsp;UI&nbsp;anymore&nbsp;when&nbsp;switching&nbsp;the&nbsp;mode&nbsp;to&nbsp;a&nbsp;schedule.<br>
+&nbsp;<br>
+NOTE:&nbsp;The&nbsp;<a href="#Arlo">Arlo</a>&nbsp;API&nbsp;seems&nbsp;to&nbsp;disable&nbsp;calendar&nbsp;mode&nbsp;when&nbsp;switching&nbsp;to&nbsp;other&nbsp;modes,&nbsp;if&nbsp;it's&nbsp;enabled.<br>
+You&nbsp;should&nbsp;probably&nbsp;do&nbsp;the&nbsp;same,&nbsp;although,&nbsp;the&nbsp;UI&nbsp;reflects&nbsp;the&nbsp;switch&nbsp;from&nbsp;calendar&nbsp;mode&nbsp;to&nbsp;say&nbsp;armed&nbsp;mode&nbsp;without&nbsp;explicitly&nbsp;setting&nbsp;calendar&nbsp;mode&nbsp;to&nbsp;inactive.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-CustomMode"><strong>CustomMode</strong></a>(self, device, mode, schedules=[])</dt><dd><tt>device&nbsp;can&nbsp;be&nbsp;any&nbsp;<a href="builtins.html#object">object</a>&nbsp;that&nbsp;has&nbsp;parentId&nbsp;==&nbsp;deviceId.&nbsp;i.e.,&nbsp;not&nbsp;a&nbsp;camera</tt></dd></dl>
+
+<dl><dt><a name="Arlo-DeleteMode"><strong>DeleteMode</strong></a>(self, device, mode)</dt><dd><tt>device&nbsp;can&nbsp;be&nbsp;any&nbsp;<a href="builtins.html#object">object</a>&nbsp;that&nbsp;has&nbsp;parentId&nbsp;==&nbsp;deviceId.&nbsp;i.e.,&nbsp;not&nbsp;a&nbsp;camera</tt></dd></dl>
+
+<dl><dt><a name="Arlo-DeleteRecording"><strong>DeleteRecording</strong></a>(self, recording)</dt><dd><tt>Delete&nbsp;a&nbsp;single&nbsp;video&nbsp;recording&nbsp;from&nbsp;<a href="#Arlo">Arlo</a>.<br>
+All&nbsp;of&nbsp;the&nbsp;date&nbsp;info&nbsp;and&nbsp;device&nbsp;id&nbsp;you&nbsp;need&nbsp;to&nbsp;pass&nbsp;into&nbsp;this&nbsp;method&nbsp;are&nbsp;given&nbsp;in&nbsp;the&nbsp;results&nbsp;of&nbsp;the&nbsp;<a href="#Arlo-GetLibrary">GetLibrary</a>()&nbsp;call.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-Disarm"><strong>Disarm</strong></a>(self, device)</dt></dl>
+
+<dl><dt><a name="Arlo-DownloadRecording"><strong>DownloadRecording</strong></a>(self, url, to)</dt><dd><tt>Writes&nbsp;a&nbsp;video&nbsp;to&nbsp;a&nbsp;given&nbsp;local&nbsp;file&nbsp;path.<br>
+&nbsp;<br>
+url:&nbsp;presignedContentUrl<br>
+to:&nbsp;path&nbsp;where&nbsp;the&nbsp;file&nbsp;should&nbsp;be&nbsp;written</tt></dd></dl>
+
+<dl><dt><a name="Arlo-DownloadSnapshot"><strong>DownloadSnapshot</strong></a>(self, url, to, chunk_size=4096)</dt><dd><tt>Writes&nbsp;a&nbsp;snapshot&nbsp;to&nbsp;a&nbsp;given&nbsp;local&nbsp;file&nbsp;path.<br>
+&nbsp;<br>
+url:&nbsp;presignedContentUrl&nbsp;or&nbsp;presignedFullFrameSnapshotUrl<br>
+to:&nbsp;path&nbsp;where&nbsp;the&nbsp;file&nbsp;should&nbsp;be&nbsp;written</tt></dd></dl>
+
+<dl><dt><a name="Arlo-Geofencing"><strong>Geofencing</strong></a>(self, location_id, active=True)</dt><dd><tt>Get&nbsp;location_id&nbsp;is&nbsp;the&nbsp;id&nbsp;field&nbsp;from&nbsp;the&nbsp;return&nbsp;of&nbsp;<a href="#Arlo-GetLocations">GetLocations</a>()<br>
+NOTE:&nbsp;The&nbsp;<a href="#Arlo">Arlo</a>&nbsp;API&nbsp;seems&nbsp;to&nbsp;disable&nbsp;geofencing&nbsp;mode&nbsp;when&nbsp;switching&nbsp;to&nbsp;other&nbsp;modes,&nbsp;if&nbsp;it's&nbsp;enabled.<br>
+You&nbsp;should&nbsp;probably&nbsp;do&nbsp;the&nbsp;same,&nbsp;although,&nbsp;the&nbsp;UI&nbsp;reflects&nbsp;the&nbsp;switch&nbsp;from&nbsp;calendar&nbsp;mode&nbsp;to&nbsp;say&nbsp;armed&nbsp;mode&nbsp;without&nbsp;explicitly&nbsp;setting&nbsp;calendar&nbsp;mode&nbsp;to&nbsp;inactive.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetAccount"><strong>GetAccount</strong></a>(self)</dt><dd><tt>This&nbsp;call&nbsp;returns&nbsp;the&nbsp;following:<br>
+{<br>
+&nbsp;&nbsp;"data":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"userId":&nbsp;"XXX-XXXXXXX",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"email":&nbsp;"joe.bloggs@gmail.com",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"dateCreated":&nbsp;1585157000819,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"dateDeviceRegistered":&nbsp;1585161139527,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"countryCode":&nbsp;"GB",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"language":&nbsp;"en-gb",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"firstName":&nbsp;"Joe",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"lastName":&nbsp;"Bloggs",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"s3StorageId":&nbsp;"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"tosVersion":&nbsp;"5",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"tosAgreeDate":&nbsp;1593126066795,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"tosShownVersion":&nbsp;"5",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"lastModified":&nbsp;1585161137898,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"accountStatus":&nbsp;"registered",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"paymentId":&nbsp;"xxxxxxxx",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"serialNumber":&nbsp;"xxxxxxxxxxxxx",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"mobilePushData":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mobilePushOsMap":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"android":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"token":&nbsp;"xxxxxxxxxxxxxxxxxxx",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"endpoint":&nbsp;"arn:aws:sns:eu-west-1:xxxxxxxxxxxx:endpoint/GCM/Arlo_Android_Prod/xxxxxxxxxxxxxxxxxxxxxx",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"createdDate":&nbsp;"20201310_0622",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"iosDebugModeFlag":&nbsp;false<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"token":&nbsp;"xxxxxxxxxxxxxxxxxxxx",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"endpoint":&nbsp;"arn:aws:sns:eu-west-1:xxxxxxxxxxxx:endpoint/GCM/Arlo_Android_Prod/xxxxxxxxxxxxxxxxxxxxxxx",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"createdDate":&nbsp;"20210801_0335",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"iosDebugModeFlag":&nbsp;false<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"recycleBinQuota":&nbsp;0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"favoriteQuota":&nbsp;0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"validEmail":&nbsp;true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"locationCreated":&nbsp;false,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"readyToClose":&nbsp;false,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"lastMessageTimeToBS":&nbsp;1608375685602<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"success":&nbsp;true<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetAudioPlayback"><strong>GetAudioPlayback</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-GetAutomationActivityZones"><strong>GetAutomationActivityZones</strong></a>(self, camera)</dt></dl>
+
+<dl><dt><a name="Arlo-GetAutomationDefinitions"><strong>GetAutomationDefinitions</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-GetBaseStationState"><strong>GetBaseStationState</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-GetCalendar"><strong>GetCalendar</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-GetCameraState"><strong>GetCameraState</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-GetCameraTempReading"><strong>GetCameraTempReading</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-GetCvrPlaylist"><strong>GetCvrPlaylist</strong></a>(self, camera, fromDate, toDate)</dt><dd><tt>This&nbsp;function&nbsp;downloads&nbsp;a&nbsp;Cvr&nbsp;Playlist&nbsp;file&nbsp;for&nbsp;the&nbsp;period&nbsp;fromDate&nbsp;to&nbsp;toDate.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetDevice"><strong>GetDevice</strong></a>(self, device_name)</dt></dl>
+
+<dl><dt><a name="Arlo-GetDeviceCapabilities"><strong>GetDeviceCapabilities</strong></a>(self, device)</dt></dl>
+
+<dl><dt><a name="Arlo-GetDeviceSupport"><strong>GetDeviceSupport</strong></a>(self)</dt><dd><tt>DEPRECATED:&nbsp;This&nbsp;API&nbsp;still&nbsp;works,&nbsp;but&nbsp;I&nbsp;don't&nbsp;see&nbsp;it&nbsp;being&nbsp;called&nbsp;in&nbsp;the&nbsp;web&nbsp;UI&nbsp;anymore.<br>
+&nbsp;<br>
+This&nbsp;API&nbsp;looks&nbsp;like&nbsp;it's&nbsp;mainly&nbsp;used&nbsp;by&nbsp;the&nbsp;website,&nbsp;but&nbsp;I'm&nbsp;including&nbsp;it&nbsp;for&nbsp;completeness&nbsp;sake.<br>
+It&nbsp;returns&nbsp;something&nbsp;like&nbsp;the&nbsp;following:<br>
+{<br>
+&nbsp;&nbsp;"devices":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":&nbsp;"arloq",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"urls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"troubleshoot":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/pc_troubleshoot.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/pc_troubleshoot.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"plugin":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/pc_plugin.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/pc_plugin.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connection":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/pc_connection.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/pc_connection.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/pc_connection_fail.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/pc_connection_fail.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"press_sync":&nbsp;"<a href="https://vzs3-prod-common.s3">https://vzs3-prod-common.s3</a>.&nbsp;amazonaws.com/static/html/en/pc_press_sync.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resetDevice":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/reset_arloq.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/reset_arloq.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qr_how_to":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/pc_qr_how_to.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/pc_qr_how_to.html</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":&nbsp;"basestation",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"urls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"troubleshoot":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/bs_troubleshoot.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/bs_troubleshoot.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connection":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/bs_connection.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/bs_connection.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/bs_sync_camera.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/bs_sync_camera.html</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":&nbsp;"arloqs",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"urls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ethernetSetup":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/ethernet_setup.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/ethernet_setup.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"plugin":&nbsp;"https://&nbsp;&nbsp;&nbsp;&nbsp;vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/aqp_plugin.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionWiFi":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/connection_in_progress_wifi.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/connection_in_progress_wifi.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"poeSetup":&nbsp;"<a href="https://vzs3-prod-common.s3">https://vzs3-prod-common.s3</a>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amazonaws.com/static/html/en/arloqs/poe_setup.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connection":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/connection_in_progress.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/connection_in_progress.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/connection_fail.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/connection_fail.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"press_sync":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/press_sync.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/press_sync.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionType":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/connection_type.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/connection_type.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resetDevice":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/reset_device.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/reset_device.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qr_how_to":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/qr_how_to.html">https://vzs3-prod-common.s3.amazonaws.com/static/html/en/arloqs/qr_how_to.html</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;]<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetDeviceSupportV3"><strong>GetDeviceSupportV3</strong></a>(self)</dt><dd><tt>This&nbsp;is&nbsp;the&nbsp;latest&nbsp;version&nbsp;of&nbsp;the&nbsp;device&nbsp;support&nbsp;api.<br>
+It&nbsp;returns&nbsp;something&nbsp;like&nbsp;the&nbsp;following:<br>
+{<br>
+&nbsp;&nbsp;"data":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"devices":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"camera":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelIds":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMC3010",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMC3030",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMC4030",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMC4030P",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMC5040",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VZC3010",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VZC3030"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionTypes":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"WPS":&nbsp;true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"BLE":&nbsp;true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kbArticles":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"insertBatteries":&nbsp;"<a href="https://kb.arlo.com/980150/Safety-Rules-for-Arlo-Wire-Free-Camera-Batteries">https://kb.arlo.com/980150/Safety-Rules-for-Arlo-Wire-Free-Camera-Batteries</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"syncBasestation":&nbsp;"<a href="https://kb.arlo.com/987/How-do-I-set-up-and-sync-my-Arlo-Wire-Free-cameras">https://kb.arlo.com/987/How-do-I-set-up-and-sync-my-Arlo-Wire-Free-cameras</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync":&nbsp;"<a href="https://kb.arlo.com/987/How-do-I-set-up-and-sync-my-Arlo-Wire-Free-camera">https://kb.arlo.com/987/How-do-I-set-up-and-sync-my-Arlo-Wire-Free-camera</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firmwareUpdate":&nbsp;"<a href="https://kb.arlo.com/4736/How-do-I-update-my-Arlo-firmware-manually">https://kb.arlo.com/4736/How-do-I-update-my-Arlo-firmware-manually</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"arloq":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelIds":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMC3040",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMC3040S"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kbArticles":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"power":&nbsp;"<a href="https://kb.arlo.com/1001944/How-do-I-set-up-Arlo-Q-on-iOS">https://kb.arlo.com/1001944/How-do-I-set-up-Arlo-Q-on-iOS</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrCode":&nbsp;"<a href="https://kb.arlo.com/1001944/How-do-I-set-up-Arlo-Q-on-iOS">https://kb.arlo.com/1001944/How-do-I-set-up-Arlo-Q-on-iOS</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"power_android":&nbsp;"<a href="https://kb.arlo.com/1002006/How-do-I-set-up-Arlo-Q-on-Android">https://kb.arlo.com/1002006/How-do-I-set-up-Arlo-Q-on-Android</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrCode_android":&nbsp;&nbsp;"<a href="https://kb.arlo.com/1002006/How-do-I-set-up-Arlo-Q-on-Android">https://kb.arlo.com/1002006/How-do-I-set-up-Arlo-Q-on-Android</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"basestation":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelIds":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB3010",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB4000",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB3010r2",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB3500",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VZB3010",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB4500",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB5000"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"smartHubs":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB5000"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kbArticles":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pluginNetworkCable":&nbsp;"<a href="https://kb.arlo.com/1179139/How-do-I-connect-my-Arlo-or-Arlo-Pro-base-station-to-the-Internet">https://kb.arlo.com/1179139/How-do-I-connect-my-Arlo-or-Arlo-Pro-base-station-to-the-Internet</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"power":&nbsp;"<a href="https://kb.arlo.com/1179139/How-do-I-connect-my-Arlo-or-Arlo-Pro-base-station-to-the-Internet">https://kb.arlo.com/1179139/How-do-I-connect-my-Arlo-or-Arlo-Pro-base-station-to-the-Internet</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"led":&nbsp;"<a href="https://kb.arlo.com/1179139/How-do-I-connect-my-Arlo-or-Arlo-Pro-base-station-to-the-Internet">https://kb.arlo.com/1179139/How-do-I-connect-my-Arlo-or-Arlo-Pro-base-station-to-the-Internet</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"learnMore":&nbsp;"<a href="https://kb.arlo.com/000062124/How-do-I-record-4K-videos-to-a-microSD-card">https://kb.arlo.com/000062124/How-do-I-record-4K-videos-to-a-microSD-card</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"arlobaby":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelIds":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ABC1000"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kbArticles":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"power":&nbsp;"<a href="https://kb.arlo.com/1282682/How-do-I-power-cycle-my-Arlo-Baby-camera">https://kb.arlo.com/1282682/How-do-I-power-cycle-my-Arlo-Baby-camera</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrCode":&nbsp;"<a href="https://kb.arlo.com/1282700/How-do-I-set-up-my-Arlo-Baby-camera">https://kb.arlo.com/1282700/How-do-I-set-up-my-Arlo-Baby-camera</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lteCamera":{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelIds":[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VML4030"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kbArticles":{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"servicePlan":"<a href="https://kb.arlo.com/1286865/What-Arlo-Mobile-service-plans-are-available">https://kb.arlo.com/1286865/What-Arlo-Mobile-service-plans-are-available</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"simActivation":"<a href="https://kb.arlo.com/1286865/What-Arlo-Mobile-service-plans-are-available">https://kb.arlo.com/1286865/What-Arlo-Mobile-service-plans-are-available</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrCode":"<a href="https://kb.arlo.com/1201822/How-do-I-set-up-my-Arlo-Go-camera">https://kb.arlo.com/1201822/How-do-I-set-up-my-Arlo-Go-camera</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"bridge":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelIds":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ABB1000"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kbArticles":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"power":&nbsp;"<a href="https://kb.arlo.com/000062047">https://kb.arlo.com/000062047</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync":&nbsp;"<a href="https://kb.arlo.com/000062037">https://kb.arlo.com/000062037</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrCode":&nbsp;"<a href="https://kb.arlo.com/000061886">https://kb.arlo.com/000061886</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"factoryReset":&nbsp;"<a href="https://kb.arlo.com/000061837">https://kb.arlo.com/000061837</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lights":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelIds":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AL1101"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kbArticles":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync":&nbsp;"<a href="https://kb.arlo.com/000062005">https://kb.arlo.com/000062005</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"insertBatteries":&nbsp;"<a href="https://kb.arlo.com/000061952">https://kb.arlo.com/000061952</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrCode":&nbsp;"<a href="https://kb.arlo.com/000061886">https://kb.arlo.com/000061886</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"routerM1":{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelIds":[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"MR1100"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kbArticles":{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lookupFailed":"<a href="https://kb.arlo.com/1179130/Arlo-can-t-discover-my-base-station-during-installation-what-do-I-do">https://kb.arlo.com/1179130/Arlo-can-t-discover-my-base-station-during-installation-what-do-I-do</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"chime":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelIds":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AC1001"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kbArticles":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ledNotBlinking":"<a href="https://kb.arlo.com/000061924">https://kb.arlo.com/000061924</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"led":"<a href="https://kb.arlo.com/000061847">https://kb.arlo.com/000061847</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"factoryReset":"<a href="https://kb.arlo.com/000061879">https://kb.arlo.com/000061879</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":"<a href="https://kb.arlo.com/000061880">https://kb.arlo.com/000061880</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"doorbell":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelIds":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AAD1001"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kbArticles":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"led":"<a href="https://kb.arlo.com/000061847">https://kb.arlo.com/000061847</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"factoryReset":"<a href="https://kb.arlo.com/000061842">https://kb.arlo.com/000061842</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pairCamera":"<a href="https://kb.arlo.com/000061897">https://kb.arlo.com/000061897</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"existingChime":"<a href="https://kb.arlo.com/000061856">https://kb.arlo.com/000061856</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"noWiring":"<a href="https://kb.arlo.com/000061859">https://kb.arlo.com/000061859</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":"<a href="https://kb.arlo.com/000061868">https://kb.arlo.com/000061868</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pairCameraFailed":"<a href="https://kb.arlo.com/000061893">https://kb.arlo.com/000061893</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"testChimeFailed":"<a href="https://kb.arlo.com/000061944">https://kb.arlo.com/000061944</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"videos":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"chimeType":&nbsp;"<a href="https://youtu.be/axytuF63VC0">https://youtu.be/axytuF63VC0</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"wireDoorbell":&nbsp;"<a href="https://youtu.be/_5D2n3iPqW0">https://youtu.be/_5D2n3iPqW0</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"switchSetting":&nbsp;"<a href="https://youtu.be/BUmd4fik2RE">https://youtu.be/BUmd4fik2RE</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"arloVideos":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"chimeType":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/devicesupport/Arlo_Audio_Doorbell_Chime.mp4">https://vzs3-prod-common.s3.amazonaws.com/static/devicesupport/Arlo_Audio_Doorbell_Chime.mp4</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"wireDoorbell":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/devicesupport/Arlo_Audio_Doorbell_Wired.mp4">https://vzs3-prod-common.s3.amazonaws.com/static/devicesupport/Arlo_Audio_Doorbell_Wired.mp4</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"switchSetting":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/devicesupport/Arlo_Audio_Doorbell_Switch.mp4">https://vzs3-prod-common.s3.amazonaws.com/static/devicesupport/Arlo_Audio_Doorbell_Switch.mp4</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"arlosmart":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"kbArticles":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"e911":&nbsp;"<a href="https://www.arlo.com/en-us/landing/arlosmart/">https://www.arlo.com/en-us/landing/arlosmart/</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"callFriend":&nbsp;"<a href="https://www.arlo.com/en-us/landing/arlosmart/">https://www.arlo.com/en-us/landing/arlosmart/</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"4kAddOnPopup":&nbsp;"<a href="https://www.arlo.com/en-us/landing/arlosmart/">https://www.arlo.com/en-us/landing/arlosmart/</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"cloudRecording":&nbsp;"<a href="https://www.arlo.com/en-us/landing/arlosmart/">https://www.arlo.com/en-us/landing/arlosmart/</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"manageArloSmart":&nbsp;"<a href="https://kb.arlo.com/000062115">https://kb.arlo.com/000062115</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"otherVideo":&nbsp;"<a href="https://kb.arlo.com/000062115">https://kb.arlo.com/000062115</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"packageDetection":&nbsp;"<a href="https://kb.arlo.com/000062114">https://kb.arlo.com/000062114</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"whereIsBasicSubscriptionGone":&nbsp;"<a href="https://kb.arlo.com/000062163">https://kb.arlo.com/000062163</a>"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"success":true<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetDeviceSupportv2"><strong>GetDeviceSupportv2</strong></a>(self)</dt><dd><tt>DEPRECATED:&nbsp;This&nbsp;API&nbsp;still&nbsp;works,&nbsp;but&nbsp;I&nbsp;don't&nbsp;see&nbsp;it&nbsp;being&nbsp;called&nbsp;in&nbsp;the&nbsp;web&nbsp;UI&nbsp;anymore.<br>
+&nbsp;<br>
+It&nbsp;returns&nbsp;something&nbsp;like&nbsp;the&nbsp;following:<br>
+{<br>
+&nbsp;&nbsp;"devices":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":&nbsp;"arloq",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelId":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMC3040"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"urls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"troubleshoot":&nbsp;"arloq/troubleshoot.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"plugin":&nbsp;"arloq/plugin.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrHowTo":&nbsp;"arloq/qrHowTo.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connection":&nbsp;"arloq/connection.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionInProgress":&nbsp;"arloq/connectionInProgress.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":&nbsp;"arloq/connectionFailed.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pressSync":&nbsp;"arloq/pressSync.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resetDevice":&nbsp;"arloq/resetDevice.html"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":&nbsp;"basestation",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelId":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB3010",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB3010r2",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB3500",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB4000",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMB4500",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VZB3010"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"urls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"troubleshoot":&nbsp;"basestation/troubleshoot.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"plugin":&nbsp;"basestation/plugin.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync3":&nbsp;"basestation/sync3.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"troubleshootBS":&nbsp;"basestation/troubleshootBS.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connection":&nbsp;"basestation/connection.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionInProgress":&nbsp;"basestation/connectionInProgress.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync2":&nbsp;"basestation/sync2.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":&nbsp;"basestation/connectionFailed.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync1":&nbsp;"basestation/sync1.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resetDevice":&nbsp;"basestation/resetDevice.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"syncComplete":&nbsp;"basestation/syncComplete.html"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":&nbsp;"arlobaby",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelId":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ABC1000"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"urls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"bleSetupError":&nbsp;"arlobaby/bleSetupError.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"troubleshoot":&nbsp;"arlobaby/troubleshoot.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"homekitCodeInstruction":&nbsp;"arlobaby/homekitCodeInstruction.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionInProgress":&nbsp;"arlobaby/connectionInProgress.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":&nbsp;"arlobaby/connectionFailed.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resetDevice":&nbsp;"arlobaby/resetDevice.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"plugin":&nbsp;"arlobaby/plugin.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrHowTo":&nbsp;"arlobaby/qrHowTo.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"warning":&nbsp;"arlobaby/warning.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connection":&nbsp;"arlobaby/connection.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pressSync":&nbsp;"arlobaby/pressSync.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"bleInactive":&nbsp;"arlobaby/bleInactive.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pluginIOS":&nbsp;"arlobaby/pluginIOS.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"homekitSetup":&nbsp;"arlobaby/homekitSetup.html"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":&nbsp;"lteCamera",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelId":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VML4030"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"urls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"troubleshoot":&nbsp;"lteCamera/troubleshoot.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resetHowTo":&nbsp;"lteCamera/resetHowTo.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"plugin":&nbsp;"lteCamera/plugin.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrHowTo":&nbsp;"lteCamera/qrHowTo.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionInProgress":&nbsp;"lteCamera/connectionInProgress.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":&nbsp;"lteCamera/connectionFailed.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resetDevice":&nbsp;"lteCamera/resetHowTo.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resetComplete":&nbsp;"lteCamera/resetComplete.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"syncComplete":&nbsp;"lteCamera/syncComplete.html"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":&nbsp;"arloqs",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelId":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"VMC3040S"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"urls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ethernetSetup":&nbsp;"arloqs/ethernetSetup.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"troubleshoot":&nbsp;"arloqs/troubleshoot.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"plugin":&nbsp;"arloqs/plugin.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"poeSetup":&nbsp;"arloqs/poeSetup.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionInProgressWiFi":&nbsp;"arloqs/connectionInProgressWifi.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrHowTo":&nbsp;"arloqs/qrHowTo.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionInProgress":&nbsp;"arloqs/connectionInProgress.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":&nbsp;"arloqs/connectionFailed.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pressSync":&nbsp;"arloqs/pressSync.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionType":&nbsp;"arloqs/connectionType.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resetDevice":&nbsp;"arloqs/resetDevice.html"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":&nbsp;"bridge",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelId":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ABB1000"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"urls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"troubleshoot":&nbsp;"bridge/troubleshoot.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fwUpdateInProgress":&nbsp;"bridge/fwUpdateInProgress.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrHowToUnplug":&nbsp;"bridge/qrHowToUnplug.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fwUpdateDone":&nbsp;"bridge/fwUpdateDone.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fwUpdateAvailable":&nbsp;"bridge/fwUpdateAvailable.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"needHelp":&nbsp;"<a href="https://www.arlo.com/en-us/support/#support_arlo_light">https://www.arlo.com/en-us/support/#support_arlo_light</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"wifiError":&nbsp;"bridge/wifiError.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"bleAndroid":&nbsp;"bridge/bleInactiveAND.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"bleIOS":&nbsp;"bridge/bleInactiveIOS.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionInProgress":&nbsp;"bridge/connectionInProgress.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":&nbsp;"bridge/connectionFailed.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"manualPair":&nbsp;"bridge/manualPairing.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resetDevice":&nbsp;"bridge/resetDevice.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lowPower":&nbsp;"bridge/lowPowerZoneSetup.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fwUpdateFailed":&nbsp;"bridge/fwUpdateFailed.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fwUpdateCheckFailed":&nbsp;"bridge/fwUpdateCheckFailed.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"plugin":&nbsp;"bridge/plugin.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrHowTo":&nbsp;"bridge/qrHowTo.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pressSync":&nbsp;"bridge/pressSync.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pluginNoLED":&nbsp;"bridge/pluginNoLED.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fwUpdateCheck":&nbsp;"bridge/fwUpdateCheck.html"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":&nbsp;"lights",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelId":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"AL1101"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"urls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"troubleshoot":&nbsp;"lights/troubleshoot.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"needHelp":&nbsp;"<a href="https://kb.netgear.com/000053159/Light-discovery-failed.html">https://kb.netgear.com/000053159/Light-discovery-failed.html</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"bleInactiveAND":&nbsp;"lights/bleInactiveAND.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionInProgress":&nbsp;"lights/connectionInProgress.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":&nbsp;"lights/connectionFailed.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"addBattery":&nbsp;"lights/addBattery.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tutorial1":&nbsp;"lights/tutorial1.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"plugin":&nbsp;"lights/plugin.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tutorial2":&nbsp;"lights/tutorial2.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tutorial3":&nbsp;"lights/tutorial3.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"configurationInProgress":&nbsp;"lights/configurationInProgress.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"qrHowTo":&nbsp;"lights/qrHowTo.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pressSync":&nbsp;"lights/pressSync.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"bleInactiveIOS":&nbsp;"lights/bleInactiveIOS.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"syncComplete":&nbsp;"lights/syncComplete.html"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deviceType":&nbsp;"routerM1",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"modelId":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"MR1100"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"urls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"troubleshoot":&nbsp;"routerM1/troubleshoot.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"help":&nbsp;"routerM1/help.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pairingFailed":&nbsp;"routerM1/pairingFailed.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"needHelp":&nbsp;"<a href="https://acupdates.netgear.com/help/redirect.aspx?url=m1arlo-kbb">https://acupdates.netgear.com/help/redirect.aspx?url=m1arlo-kbb</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"plugin":&nbsp;"routerM1/plugin.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pairing":&nbsp;"routerM1/pairing.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionInProgress":&nbsp;"routerM1/connectionInProgress.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync2":&nbsp;"routerM1/sync2.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"connectionFailed":&nbsp;"routerM1/connectionFailed.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync1":&nbsp;"routerM1/sync1.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sync":&nbsp;"routerM1/sync.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"syncComplete":&nbsp;"routerM1/syncComplete.html"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;"selectionUrls":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"addDevice":&nbsp;"addDeviceBsRuAqAqpLteAbcMrBgLt.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"selectBasestation":&nbsp;"selectBsMr.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"deviceSelection":&nbsp;"deviceBsAqAqpLteAbcMrLtSelection.html",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"selectLights":&nbsp;"selectBgLt.html"<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"baseUrl":&nbsp;"<a href="https://vzs3-prod-common.s3.amazonaws.com/static/v2/html/en/">https://vzs3-prod-common.s3.amazonaws.com/static/v2/html/en/</a>"<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetDevices"><strong>GetDevices</strong></a>(self, device_type=None, filter_provisioned=None)</dt><dd><tt>This&nbsp;method&nbsp;returns&nbsp;an&nbsp;array&nbsp;that&nbsp;contains&nbsp;the&nbsp;basestation,&nbsp;cameras,&nbsp;etc.&nbsp;and&nbsp;their&nbsp;metadata.<br>
+If&nbsp;you&nbsp;pass&nbsp;in&nbsp;a&nbsp;valid&nbsp;device&nbsp;type,&nbsp;as&nbsp;a&nbsp;string&nbsp;or&nbsp;a&nbsp;list,&nbsp;this&nbsp;method&nbsp;will&nbsp;return&nbsp;an&nbsp;array&nbsp;of&nbsp;just&nbsp;those&nbsp;devices&nbsp;that&nbsp;match&nbsp;that&nbsp;type.&nbsp;An&nbsp;example&nbsp;would&nbsp;be&nbsp;['basestation',&nbsp;'camera']<br>
+To&nbsp;filter&nbsp;provisioned&nbsp;or&nbsp;unprovisioned&nbsp;devices&nbsp;pass&nbsp;in&nbsp;a&nbsp;True/False&nbsp;value&nbsp;for&nbsp;filter_provisioned.&nbsp;By&nbsp;default&nbsp;both&nbsp;types&nbsp;are&nbsp;returned.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetEmergencyLocations"><strong>GetEmergencyLocations</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-GetFriends"><strong>GetFriends</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-GetLibrary"><strong>GetLibrary</strong></a>(self, from_date, to_date)</dt><dd><tt>This&nbsp;call&nbsp;returns&nbsp;the&nbsp;following:<br>
+presignedContentUrl&nbsp;is&nbsp;a&nbsp;link&nbsp;to&nbsp;the&nbsp;actual&nbsp;video&nbsp;in&nbsp;Amazon&nbsp;AWS.<br>
+presignedThumbnailUrl&nbsp;is&nbsp;a&nbsp;link&nbsp;to&nbsp;the&nbsp;thumbnail&nbsp;.jpg&nbsp;of&nbsp;the&nbsp;actual&nbsp;video&nbsp;in&nbsp;Amazon&nbsp;AWS.<br>
+&nbsp;<br>
+[<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"mediaDurationSecond":&nbsp;30,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"contentType":&nbsp;"video/mp4",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"name":&nbsp;"XXXXXXXXXXXXX",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"presignedContentUrl":&nbsp;"<a href="https://arlos3-prod-z2.s3.amazonaws.com/XXXXXXX_XXXX_XXXX_XXXX_XXXXXXXXXXXXX/XXX-XXXXXXX/XXXXXXXXXXXXX/recordings/XXXXXXXXXXXXX.mp4?AWSAccessKeyId=XXXXXXXXXXXXXXXXXXXX&amp;Expires=1472968703&amp;Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX">https://arlos3-prod-z2.s3.amazonaws.com/XXXXXXX_XXXX_XXXX_XXXX_XXXXXXXXXXXXX/XXX-XXXXXXX/XXXXXXXXXXXXX/recordings/XXXXXXXXXXXXX.mp4?AWSAccessKeyId=XXXXXXXXXXXXXXXXXXXX&amp;Expires=1472968703&amp;Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"lastModified":&nbsp;1472881430181,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"localCreatedDate":&nbsp;XXXXXXXXXXXXX,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"presignedThumbnailUrl":&nbsp;"<a href="https://arlos3-prod-z2.s3.amazonaws.com/XXXXXXX_XXXX_XXXX_XXXX_XXXXXXXXXXXXX/XXX-XXXXXXX/XXXXXXXXXXXXX/recordings/XXXXXXXXXXXXX_thumb.jpg?AWSAccessKeyId=XXXXXXXXXXXXXXXXXXXX&amp;Expires=1472968703&amp;Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX">https://arlos3-prod-z2.s3.amazonaws.com/XXXXXXX_XXXX_XXXX_XXXX_XXXXXXXXXXXXX/XXX-XXXXXXX/XXXXXXXXXXXXX/recordings/XXXXXXXXXXXXX_thumb.jpg?AWSAccessKeyId=XXXXXXXXXXXXXXXXXXXX&amp;Expires=1472968703&amp;Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a>",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"reason":&nbsp;"motionRecord",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"deviceId":&nbsp;"XXXXXXXXXXXXX",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"createdBy":&nbsp;"XXXXXXXXXXXXX",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"createdDate":&nbsp;"20160903",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"timeZone":&nbsp;"America/Chicago",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"ownerId":&nbsp;"XXX-XXXXXXX",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"utcCreatedDate":&nbsp;XXXXXXXXXXXXX,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"currentState":&nbsp;"new",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"mediaDuration":&nbsp;"00:00:30"<br>
+&nbsp;&nbsp;}<br>
+]</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetLibraryMetaData"><strong>GetLibraryMetaData</strong></a>(self, from_date, to_date)</dt></dl>
+
+<dl><dt><a name="Arlo-GetLocations"><strong>GetLocations</strong></a>(self)</dt><dd><tt>This&nbsp;call&nbsp;returns&nbsp;the&nbsp;following:<br>
+{<br>
+&nbsp;&nbsp;"id":"XXX-XXXXXXX_20160823042047",<br>
+&nbsp;&nbsp;"name":"Home",<br>
+&nbsp;&nbsp;"ownerId":"XXX-XXXXXXX",<br>
+&nbsp;&nbsp;"longitude":X.XXXXXXXXXXXXXXXX,<br>
+&nbsp;&nbsp;"latitude":X.XXXXXXXXXXXXXXXX,<br>
+&nbsp;&nbsp;"address":"123&nbsp;Middle&nbsp;Of&nbsp;Nowhere&nbsp;Bumbfuck,&nbsp;EG,&nbsp;12345",<br>
+&nbsp;&nbsp;"homeMode":"schedule",<br>
+&nbsp;&nbsp;"awayMode":"mode1",<br>
+&nbsp;&nbsp;"geoEnabled":false,<br>
+&nbsp;&nbsp;"geoRadius":150.0,<br>
+&nbsp;&nbsp;"uniqueIds":[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"XXX-XXXXXXX_XXXXXXXXXXXXX"<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;"smartDevices":[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"XXXXXXXXXX",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;"pushNotifyDevices":[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"XXXXXXXXXX"<br>
+&nbsp;&nbsp;]<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetModes"><strong>GetModes</strong></a>(self, basestation)</dt><dd><tt>DEPRECATED:&nbsp;This&nbsp;is&nbsp;the&nbsp;older&nbsp;API&nbsp;for&nbsp;getting&nbsp;the&nbsp;"mode".&nbsp;It&nbsp;still&nbsp;works,&nbsp;but&nbsp;GetModesV2&nbsp;is&nbsp;the&nbsp;way&nbsp;the&nbsp;<a href="#Arlo">Arlo</a>&nbsp;software&nbsp;does&nbsp;it&nbsp;these&nbsp;days.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetModesV2"><strong>GetModesV2</strong></a>(self)</dt><dd><tt>This&nbsp;is&nbsp;the&nbsp;newer&nbsp;API&nbsp;for&nbsp;getting&nbsp;the&nbsp;"mode".&nbsp;This&nbsp;method&nbsp;also&nbsp;returns&nbsp;the&nbsp;schedules.<br>
+Set&nbsp;a&nbsp;non-schedule&nbsp;mode&nbsp;to&nbsp;be&nbsp;active:&nbsp;{"activeAutomations":[{"deviceId":"XXXXXXXXXXXXX","timestamp":1532015622105,"activeModes":["mode1"],"activeSchedules":[]}]}<br>
+Set&nbsp;a&nbsp;schedule&nbsp;to&nbsp;be&nbsp;active:&nbsp;{"activeAutomations":[{"deviceId":"XXXXXXXXXXXXX","timestamp":1532015790139,"activeModes":[],"activeSchedules":["schedule.1"]}]}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetOCProfile"><strong>GetOCProfile</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-GetPaymentBilling"><strong>GetPaymentBilling</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-GetPaymentOffers"><strong>GetPaymentOffers</strong></a>(self)</dt><dd><tt>DEPRECATED:&nbsp;This&nbsp;API&nbsp;still&nbsp;works,&nbsp;but&nbsp;I&nbsp;don't&nbsp;see&nbsp;it&nbsp;being&nbsp;called&nbsp;in&nbsp;the&nbsp;web&nbsp;UI&nbsp;anymore.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetPaymentOffersV2"><strong>GetPaymentOffersV2</strong></a>(self)</dt><dd><tt>DEPRECATED:&nbsp;This&nbsp;API&nbsp;still&nbsp;works,&nbsp;but&nbsp;I&nbsp;don't&nbsp;see&nbsp;it&nbsp;being&nbsp;called&nbsp;in&nbsp;the&nbsp;web&nbsp;UI&nbsp;anymore.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetPaymentOffersV3"><strong>GetPaymentOffersV3</strong></a>(self)</dt><dd><tt>DEPRECATED:&nbsp;This&nbsp;API&nbsp;still&nbsp;works,&nbsp;but&nbsp;I&nbsp;don't&nbsp;see&nbsp;it&nbsp;being&nbsp;called&nbsp;in&nbsp;the&nbsp;web&nbsp;UI&nbsp;anymore.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetPaymentOffersV4"><strong>GetPaymentOffersV4</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-GetProfile"><strong>GetProfile</strong></a>(self)</dt><dd><tt>This&nbsp;call&nbsp;returns&nbsp;the&nbsp;following:<br>
+{<br>
+&nbsp;&nbsp;"data":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"_type":&nbsp;"User",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstName":&nbsp;"Joe",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastName":&nbsp;"Bloggs",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"language":&nbsp;"en",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"country":&nbsp;"GB",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"acceptedPolicy":&nbsp;1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"currentPolicy":&nbsp;1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"validEmail":&nbsp;true<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"success":&nbsp;true<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetRecording"><strong>GetRecording</strong></a>(self, url, chunk_size=4096)</dt><dd><tt>Returns&nbsp;the&nbsp;whole&nbsp;video&nbsp;from&nbsp;the&nbsp;presignedContentUrl.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetRules"><strong>GetRules</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-GetSensorConfig"><strong>GetSensorConfig</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-GetServiceLevel"><strong>GetServiceLevel</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-GetServiceLevelSettings"><strong>GetServiceLevelSettings</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-GetServiceLevelV2"><strong>GetServiceLevelV2</strong></a>(self)</dt><dd><tt>DEPRECATED:&nbsp;This&nbsp;API&nbsp;still&nbsp;works,&nbsp;but&nbsp;I&nbsp;don't&nbsp;see&nbsp;it&nbsp;being&nbsp;called&nbsp;in&nbsp;the&nbsp;web&nbsp;UI&nbsp;anymore.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetServiceLevelV3"><strong>GetServiceLevelV3</strong></a>(self)</dt><dd><tt>DEPRECATED:&nbsp;This&nbsp;API&nbsp;still&nbsp;works,&nbsp;but&nbsp;I&nbsp;don't&nbsp;see&nbsp;it&nbsp;being&nbsp;called&nbsp;in&nbsp;the&nbsp;web&nbsp;UI&nbsp;anymore.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetServiceLevelV4"><strong>GetServiceLevelV4</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-GetSession"><strong>GetSession</strong></a>(self)</dt><dd><tt>Returns&nbsp;something&nbsp;like&nbsp;the&nbsp;following:<br>
+{<br>
+&nbsp;&nbsp;"userId":&nbsp;"XXX-XXXXXXX",<br>
+&nbsp;&nbsp;"email":&nbsp;"jeffreydwalter@gmail.com",<br>
+&nbsp;&nbsp;"token":&nbsp;"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",<br>
+&nbsp;&nbsp;"paymentId":&nbsp;"XXXXXXXX",<br>
+&nbsp;&nbsp;"accountStatus":&nbsp;"registered",<br>
+&nbsp;&nbsp;"serialNumber":&nbsp;"XXXXXXXXXXXXXX",<br>
+&nbsp;&nbsp;"countryCode":&nbsp;"US",<br>
+&nbsp;&nbsp;"tocUpdate":&nbsp;false,<br>
+&nbsp;&nbsp;"policyUpdate":&nbsp;false,<br>
+&nbsp;&nbsp;"validEmail":&nbsp;true,<br>
+&nbsp;&nbsp;"arlo":&nbsp;true,<br>
+&nbsp;&nbsp;"dateCreated":&nbsp;1463975008658<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetSessionV2"><strong>GetSessionV2</strong></a>(self)</dt><dd><tt>Returns&nbsp;something&nbsp;like&nbsp;the&nbsp;following:<br>
+{<br>
+&nbsp;&nbsp;"userId":&nbsp;"XXX-XXXXXXX",<br>
+&nbsp;&nbsp;"email":&nbsp;"jeffreydwalter@gmail.com",<br>
+&nbsp;&nbsp;"token":&nbsp;"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",<br>
+&nbsp;&nbsp;"paymentId":&nbsp;"XXXXXXXX",<br>
+&nbsp;&nbsp;"accountStatus":&nbsp;"registered",<br>
+&nbsp;&nbsp;"serialNumber":&nbsp;"XXXXXXXXXXXXXX",<br>
+&nbsp;&nbsp;"countryCode":&nbsp;"US",<br>
+&nbsp;&nbsp;"tocUpdate":&nbsp;false,<br>
+&nbsp;&nbsp;"policyUpdate":&nbsp;false,<br>
+&nbsp;&nbsp;"validEmail":&nbsp;true,<br>
+&nbsp;&nbsp;"arlo":&nbsp;true,<br>
+&nbsp;&nbsp;"dateCreated":&nbsp;1463975008658<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-GetSmartAlerts"><strong>GetSmartAlerts</strong></a>(self, camera)</dt></dl>
+
+<dl><dt><a name="Arlo-GetSmartFeatures"><strong>GetSmartFeatures</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-GetUpdateFeatures"><strong>GetUpdateFeatures</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-HandleEvents"><strong>HandleEvents</strong></a>(self, basestation, callback, timeout=120)</dt><dd><tt>Use&nbsp;this&nbsp;method&nbsp;to&nbsp;subscribe&nbsp;to&nbsp;the&nbsp;event&nbsp;stream&nbsp;and&nbsp;provide&nbsp;a&nbsp;callback&nbsp;that&nbsp;will&nbsp;be&nbsp;called&nbsp;for&nbsp;event&nbsp;event&nbsp;received.<br>
+This&nbsp;function&nbsp;will&nbsp;allow&nbsp;you&nbsp;to&nbsp;potentially&nbsp;write&nbsp;a&nbsp;callback&nbsp;that&nbsp;can&nbsp;handle&nbsp;all&nbsp;of&nbsp;the&nbsp;events&nbsp;received&nbsp;from&nbsp;the&nbsp;event&nbsp;stream.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-Login"><strong>Login</strong></a>(self, username, password)</dt><dd><tt>This&nbsp;call&nbsp;returns&nbsp;the&nbsp;following:<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"userId":"XXX-XXXXXXX",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"email":"user@example.com",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"token":"2_5HicFJMXXXXX-S_7IuK2EqOUHXXXXXXXXXXX1CXKWTThgU18Va_XXXXXX5S00hUafv3PV_if_Bl_rhiFsDHYwhxI3CxlVnR5f3q2XXXXXX-Wnt9F7D82uN1f4cXXXXX-FMUsWF_6tMBqwn6DpzOaIB7ciJrnr2QJyKewbQouGM6",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"paymentId":"XXXXXXXX",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"authenticated":1472961381,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"accountStatus":"registered",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"serialNumber":"XXXXXXXXXXXXX",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"countryCode":"US",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"tocUpdate":false,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"policyUpdate":false,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"validEmail":true<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-LoginMFA"><strong>LoginMFA</strong></a>(self, username, password, google_credential_file)</dt></dl>
+
+<dl><dt><a name="Arlo-Logout"><strong>Logout</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-Notify"><strong>Notify</strong></a>(self, basestation, body)</dt><dd><tt>The&nbsp;following&nbsp;are&nbsp;examples&nbsp;of&nbsp;the&nbsp;json&nbsp;you&nbsp;would&nbsp;need&nbsp;to&nbsp;pass&nbsp;in&nbsp;the&nbsp;body&nbsp;of&nbsp;the&nbsp;<a href="#Arlo-Notify">Notify</a>()&nbsp;call&nbsp;to&nbsp;interact&nbsp;with&nbsp;<a href="#Arlo">Arlo</a>:<br>
+&nbsp;<br>
+##############################################################################################################################<br>
+##############################################################################################################################<br>
+NOTE:&nbsp;While&nbsp;you&nbsp;can&nbsp;call&nbsp;<a href="#Arlo-Notify">Notify</a>()&nbsp;directly,&nbsp;responses&nbsp;from&nbsp;these&nbsp;notify&nbsp;calls&nbsp;are&nbsp;sent&nbsp;to&nbsp;the&nbsp;EventStream&nbsp;(see&nbsp;<a href="#Arlo-Subscribe">Subscribe</a>()),<br>
+and&nbsp;so&nbsp;it's&nbsp;better&nbsp;to&nbsp;use&nbsp;the&nbsp;Get/Set&nbsp;methods&nbsp;that&nbsp;are&nbsp;implemented&nbsp;using&nbsp;the&nbsp;<a href="#Arlo-NotifyAndGetResponse">NotifyAndGetResponse</a>()&nbsp;method.<br>
+##############################################################################################################################<br>
+##############################################################################################################################<br>
+&nbsp;<br>
+Set&nbsp;System&nbsp;Mode&nbsp;(Armed,&nbsp;Disarmed)&nbsp;-&nbsp;{"from":"XXX-XXXXXXX_web","to":"XXXXXXXXXXXXX","action":"set","resource":"modes","transId":"web!XXXXXXXX.XXXXXXXXXXXXXXXXXXXX","publishResponse":true,"properties":{"active":"mode0"}}<br>
+Set&nbsp;System&nbsp;Mode&nbsp;(Calendar)&nbsp;-&nbsp;{"from":"XXX-XXXXXXX_web","to":"XXXXXXXXXXXXX","action":"set","resource":"schedule","transId":"web!XXXXXXXX.XXXXXXXXXXXXXXXXXXXX","publishResponse":true,"properties":{"active":true}}<br>
+Configure&nbsp;The&nbsp;Schedule&nbsp;(Calendar)&nbsp;-&nbsp;{"from":"XXX-XXXXXXX_web","to":"XXXXXXXXXXXXX","action":"set","resource":"schedule","transId":"web!XXXXXXXX.XXXXXXXXXXXXXXXXXXXX","publishResponse":true,"properties":{"schedule":[{"modeId":"mode0","startTime":0},{"modeId":"mode2","startTime":28800000},{"modeId":"mode0","startTime":64800000},{"modeId":"mode0","startTime":86400000},{"modeId":"mode2","startTime":115200000},{"modeId":"mode0","startTime":151200000},{"modeId":"mode0","startTime":172800000},{"modeId":"mode2","startTime":201600000},{"modeId":"mode0","startTime":237600000},{"modeId":"mode0","startTime":259200000},{"modeId":"mode2","startTime":288000000},{"modeId":"mode0","startTime":324000000},{"modeId":"mode0","startTime":345600000},{"modeId":"mode2","startTime":374400000},{"modeId":"mode0","startTime":410400000},{"modeId":"mode0","startTime":432000000},{"modeId":"mode0","startTime":518400000}]}<br>
+Create&nbsp;Mode&nbsp;-<br>
+&nbsp;&nbsp;&nbsp;{"from":"XXX-XXXXXXX_web","to":"XXXXXXXXXXXXX","action":"add","resource":"rules","transId":"web!XXXXXXXX.XXXXXXXXXXXXXXXXXXXX","publishResponse":true,"properties":{"name":"Record&nbsp;video&nbsp;on&nbsp;Camera&nbsp;1&nbsp;if&nbsp;Camera&nbsp;1&nbsp;detects&nbsp;motion","id":"ruleNew","triggers":[{"type":"pirMotionActive","deviceId":"XXXXXXXXXXXXX","sensitivity":80}],"actions":[{"deviceId":"XXXXXXXXXXXXX","type":"recordVideo","stopCondition":{"type":"timeout","timeout":15}},{"type":"sendEmailAlert","recipients":["__OWNER_EMAIL__"]},{"type":"pushNotification"}]}}<br>
+&nbsp;&nbsp;&nbsp;{"from":"XXX-XXXXXXX_web","to":"XXXXXXXXXXXXX","action":"add","resource":"modes","transId":"web!XXXXXXXX.XXXXXXXXXXXXXXXXXXXX","publishResponse":true,"properties":{"name":"Test","rules":["rule3"]}}<br>
+Delete&nbsp;Mode&nbsp;-&nbsp;{"from":"XXX-XXXXXXX_web","to":"XXXXXXXXXXXXX","action":"delete","resource":"modes/mode3","transId":"web!XXXXXXXX.XXXXXXXXXXXXXXXXXXXX","publishResponse":true}<br>
+Camera&nbsp;Off&nbsp;-&nbsp;{"from":"XXX-XXXXXXX_web","to":"XXXXXXXXXXXXX","action":"set","resource":"cameras/XXXXXXXXXXXXX","transId":"web!XXXXXXXX.XXXXXXXXXXXXXXXXXXXX","publishResponse":true,"properties":{"privacyActive":false}}<br>
+Night&nbsp;Vision&nbsp;On&nbsp;-&nbsp;{"from":"XXX-XXXXXXX_web","to":"XXXXXXXXXXXXX","action":"set","resource":"cameras/XXXXXXXXXXXXX","transId":"web!XXXXXXXX.XXXXXXXXXXXXXXXXXXXX","publishResponse":true,"properties":{"zoom":{"topleftx":0,"toplefty":0,"bottomrightx":1280,"bottomrighty":720},"mirror":true,"flip":true,"nightVisionMode":1,"powerSaveMode":2}}<br>
+Motion&nbsp;Detection&nbsp;Test&nbsp;-&nbsp;{"from":"XXX-XXXXXXX_web","to":"XXXXXXXXXXXXX","action":"set","resource":"cameras/XXXXXXXXXXXXX","transId":"web!XXXXXXXX.XXXXXXXXXXXXXXXXXXXX","publishResponse":true,"properties":{"motionSetupModeEnabled":true,"motionSetupModeSensitivity":80}}<br>
+&nbsp;<br>
+device_id&nbsp;=&nbsp;locations.data.uniqueIds<br>
+&nbsp;<br>
+System&nbsp;Properties:&nbsp;("resource":"modes")<br>
+&nbsp;&nbsp;active&nbsp;(string)&nbsp;-&nbsp;Mode&nbsp;Selection&nbsp;(mode2&nbsp;=&nbsp;All&nbsp;Motion&nbsp;On,&nbsp;mode1&nbsp;=&nbsp;Armed,&nbsp;mode0&nbsp;=&nbsp;Disarmed,&nbsp;etc.)<br>
+&nbsp;<br>
+System&nbsp;Properties:&nbsp;("resource":"schedule")<br>
+&nbsp;&nbsp;active&nbsp;(bool)&nbsp;-&nbsp;Mode&nbsp;Selection&nbsp;(true&nbsp;=&nbsp;Calendar)<br>
+&nbsp;<br>
+Camera&nbsp;Properties:&nbsp;("resource":"cameras/{id}")<br>
+&nbsp;&nbsp;privacyActive&nbsp;(bool)&nbsp;-&nbsp;Camera&nbsp;On/Off<br>
+&nbsp;&nbsp;zoom&nbsp;(topleftx&nbsp;(int),&nbsp;toplefty&nbsp;(int),&nbsp;bottomrightx&nbsp;(int),&nbsp;bottomrighty&nbsp;(int))&nbsp;-&nbsp;Camera&nbsp;Zoom&nbsp;Level<br>
+&nbsp;&nbsp;mirror&nbsp;(bool)&nbsp;-&nbsp;Mirror&nbsp;Image&nbsp;(left-to-right&nbsp;or&nbsp;right-to-left)<br>
+&nbsp;&nbsp;flip&nbsp;(bool)&nbsp;-&nbsp;Flip&nbsp;Image&nbsp;Vertically<br>
+&nbsp;&nbsp;nightVisionMode&nbsp;(int)&nbsp;-&nbsp;Night&nbsp;Mode&nbsp;Enabled/Disabled&nbsp;(1,&nbsp;0)<br>
+&nbsp;&nbsp;powerSaveMode&nbsp;(int)&nbsp;-&nbsp;PowerSaver&nbsp;Mode&nbsp;(3&nbsp;=&nbsp;Best&nbsp;Video,&nbsp;2&nbsp;=&nbsp;Optimized,&nbsp;1&nbsp;=&nbsp;Best&nbsp;Battery&nbsp;Life)<br>
+&nbsp;&nbsp;motionSetupModeEnabled&nbsp;(bool)&nbsp;-&nbsp;Motion&nbsp;Detection&nbsp;Setup&nbsp;Enabled/Disabled<br>
+&nbsp;&nbsp;motionSetupModeSensitivity&nbsp;(int&nbsp;0-100)&nbsp;-&nbsp;Motion&nbsp;Detection&nbsp;Sensitivity</tt></dd></dl>
+
+<dl><dt><a name="Arlo-NotifyAndGetResponse"><strong>NotifyAndGetResponse</strong></a>(self, basestation, body, timeout=120)</dt></dl>
+
+<dl><dt><a name="Arlo-PauseTrack"><strong>PauseTrack</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-Ping"><strong>Ping</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-PlayTrack"><strong>PlayTrack</strong></a>(self, basestation, track_id='2391d620-e491-4412-99f6-e9a40d6046ed', position=0)</dt><dd><tt>Defaulting&nbsp;to&nbsp;'hugh&nbsp;little&nbsp;baby',&nbsp;which&nbsp;is&nbsp;a&nbsp;supplied&nbsp;track.&nbsp;I&nbsp;hope&nbsp;the&nbsp;ID&nbsp;is&nbsp;the&nbsp;same&nbsp;for&nbsp;all</tt></dd></dl>
+
+<dl><dt><a name="Arlo-PushToTalk"><strong>PushToTalk</strong></a>(self, camera)</dt></dl>
+
+<dl><dt><a name="Arlo-RemoveFriend"><strong>RemoveFriend</strong></a>(self, email)</dt><dd><tt>Removes&nbsp;a&nbsp;person&nbsp;you've&nbsp;granted&nbsp;access&nbsp;to.<br>
+&nbsp;<br>
+email:&nbsp;email&nbsp;of&nbsp;user&nbsp;you&nbsp;want&nbsp;to&nbsp;revoke&nbsp;access&nbsp;from.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-ResendFriendInvite"><strong>ResendFriendInvite</strong></a>(self, friend)</dt><dd><tt>This&nbsp;API&nbsp;will&nbsp;resend&nbsp;an&nbsp;invitation&nbsp;email&nbsp;to&nbsp;a&nbsp;user&nbsp;that&nbsp;you've&nbsp;AddFriend'd.&nbsp;You&nbsp;will&nbsp;need&nbsp;to&nbsp;get&nbsp;the&nbsp;friend&nbsp;<a href="builtins.html#object">object</a>&nbsp;by&nbsp;calling&nbsp;GetFriend()&nbsp;because&nbsp;it&nbsp;includes&nbsp;a&nbsp;token&nbsp;that&nbsp;must&nbsp;be&nbsp;passed&nbsp;to&nbsp;this&nbsp;API.<br>
+friend:&nbsp;{"ownerId":"XXX-XXXXXXX","token":"really&nbsp;long&nbsp;string&nbsp;that&nbsp;you&nbsp;get&nbsp;from&nbsp;the&nbsp;<a href="#Arlo-GetFriends">GetFriends</a>()&nbsp;API","firstName":"John","lastName":"Doe","devices":{"XXX-XXXXXXX_XXXXXXXXXXXX":"Camera1","XXX-XXXXXXX_XXXXXXXXXXXX":"Camera2"},"lastModified":1548470485419,"adminUser":false,"email":"john.doe@example.com"}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-Reset"><strong>Reset</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Arlo-RestartBasestation"><strong>RestartBasestation</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetAirQualityAlertOff"><strong>SetAirQualityAlertOff</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetAirQualityAlertOn"><strong>SetAirQualityAlertOn</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetAirQualityAlertThresholdMax"><strong>SetAirQualityAlertThresholdMax</strong></a>(self, basestation, number=700)</dt></dl>
+
+<dl><dt><a name="Arlo-SetAirQualityAlertThresholdMin"><strong>SetAirQualityAlertThresholdMin</strong></a>(self, basestation, number=400)</dt></dl>
+
+<dl><dt><a name="Arlo-SetAirQualityRecordingOff"><strong>SetAirQualityRecordingOff</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetAirQualityRecordingOn"><strong>SetAirQualityRecordingOn</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetAudioAlertsOff"><strong>SetAudioAlertsOff</strong></a>(self, basestation, sensitivity=3)</dt></dl>
+
+<dl><dt><a name="Arlo-SetAudioAlertsOn"><strong>SetAudioAlertsOn</strong></a>(self, basestation, sensitivity=3)</dt></dl>
+
+<dl><dt><a name="Arlo-SetAutomationActivityZones"><strong>SetAutomationActivityZones</strong></a>(self, camera, zone, coords, color)</dt><dd><tt>An&nbsp;activity&nbsp;zone&nbsp;is&nbsp;the&nbsp;area&nbsp;you&nbsp;draw&nbsp;in&nbsp;your&nbsp;video&nbsp;in&nbsp;the&nbsp;UI&nbsp;to&nbsp;tell&nbsp;<a href="#Arlo">Arlo</a>&nbsp;what&nbsp;part&nbsp;of&nbsp;the&nbsp;scene&nbsp;to&nbsp;"watch".<br>
+This&nbsp;method&nbsp;takes&nbsp;4&nbsp;arguments.<br>
+camera:&nbsp;the&nbsp;camera&nbsp;you&nbsp;want&nbsp;to&nbsp;set&nbsp;an&nbsp;activity&nbsp;zone&nbsp;for.<br>
+name:&nbsp;"Zone&nbsp;1"&nbsp;-&nbsp;the&nbsp;name&nbsp;of&nbsp;your&nbsp;activity&nbsp;zone.<br>
+coords:&nbsp;[{"x":0.37946943483275664,"y":0.3790983606557377},{"x":0.8685121107266436,"y":0.3790983606557377},{"x":0.8685121107266436,"y":1},{"x":0.37946943483275664,"y":1}]&nbsp;-&nbsp;these&nbsp;coordinates&nbsp;are&nbsp;the&nbsp;bonding&nbsp;box&nbsp;for&nbsp;the&nbsp;activity&nbsp;zone.<br>
+color:&nbsp;45136&nbsp;-&nbsp;the&nbsp;color&nbsp;for&nbsp;your&nbsp;bounding&nbsp;box.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-SetHumidityAlertOff"><strong>SetHumidityAlertOff</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetHumidityAlertOn"><strong>SetHumidityAlertOn</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetHumidityAlertThresholdMax"><strong>SetHumidityAlertThresholdMax</strong></a>(self, basestation, number=800)</dt></dl>
+
+<dl><dt><a name="Arlo-SetHumidityAlertThresholdMin"><strong>SetHumidityAlertThresholdMin</strong></a>(self, basestation, number=400)</dt></dl>
+
+<dl><dt><a name="Arlo-SetHumidityRecordingOff"><strong>SetHumidityRecordingOff</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetHumidityRecordingOn"><strong>SetHumidityRecordingOn</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetLoopBackModeContinuous"><strong>SetLoopBackModeContinuous</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetLoopBackModeSingleTrack"><strong>SetLoopBackModeSingleTrack</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetMotionAlertsOff"><strong>SetMotionAlertsOff</strong></a>(self, basestation, sensitivity=5)</dt></dl>
+
+<dl><dt><a name="Arlo-SetMotionAlertsOn"><strong>SetMotionAlertsOn</strong></a>(self, basestation, sensitivity=5)</dt></dl>
+
+<dl><dt><a name="Arlo-SetNightLightBrightness"><strong>SetNightLightBrightness</strong></a>(self, basestation, level=200)</dt></dl>
+
+<dl><dt><a name="Arlo-SetNightLightColor"><strong>SetNightLightColor</strong></a>(self, basestation, red=255, green=255, blue=255)</dt></dl>
+
+<dl><dt><a name="Arlo-SetNightLightMode"><strong>SetNightLightMode</strong></a>(self, basestation, mode='rainbow')</dt><dd><tt>mode:&nbsp;rainbow&nbsp;or&nbsp;rgb.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-SetNightLightOff"><strong>SetNightLightOff</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetNightLightOn"><strong>SetNightLightOn</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetNightLightTimerOff"><strong>SetNightLightTimerOff</strong></a>(self, basestation, time=0, timediff=300)</dt></dl>
+
+<dl><dt><a name="Arlo-SetNightLightTimerOn"><strong>SetNightLightTimerOn</strong></a>(self, basestation, time=1636756352, timediff=0)</dt></dl>
+
+<dl><dt><a name="Arlo-SetOCProfile"><strong>SetOCProfile</strong></a>(self, firstName, lastName, country='United States', language='en', spam_me=0)</dt></dl>
+
+<dl><dt><a name="Arlo-SetSchedule"><strong>SetSchedule</strong></a>(self, basestation, schedule)</dt><dd><tt>The&nbsp;following&nbsp;json&nbsp;is&nbsp;what&nbsp;was&nbsp;sent&nbsp;to&nbsp;the&nbsp;API&nbsp;when&nbsp;I&nbsp;edited&nbsp;my&nbsp;schedule.&nbsp;It&nbsp;contains&nbsp;all&nbsp;of&nbsp;the&nbsp;data&nbsp;necessary&nbsp;to&nbsp;configure&nbsp;a&nbsp;whole&nbsp;week.&nbsp;It's&nbsp;a&nbsp;little&nbsp;convoluted,&nbsp;but&nbsp;you&nbsp;can&nbsp;just&nbsp;play&nbsp;around&nbsp;with&nbsp;the&nbsp;scheduler&nbsp;in&nbsp;Chrome&nbsp;and&nbsp;watch&nbsp;the&nbsp;schema&nbsp;that&nbsp;gets&nbsp;sent.<br>
+&nbsp;<br>
+{<br>
+&nbsp;&nbsp;"schedule":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"duration":&nbsp;600,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"startActions":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"disableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode0"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode1"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"days":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Mo",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Tu",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"We",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Th",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fr",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Sa",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Su"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"startTime":&nbsp;0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"weeklyAction",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"endActions":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"disableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode1"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode0"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"duration":&nbsp;360,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"startActions":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"disableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode0"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode2"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"days":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Mo",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Tu",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"We",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Th",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fr",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Sa",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Su"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"startTime":&nbsp;1080,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"weeklyAction",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"endActions":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"disableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode2"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode0"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"duration":&nbsp;480,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"startActions":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"disableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode0"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode3"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"days":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Tu"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"startTime":&nbsp;600,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"weeklyAction",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"endActions":&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"disableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode3"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"enableModes":&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mode0"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;"name":&nbsp;"",<br>
+&nbsp;&nbsp;"id":&nbsp;"schedule.1",<br>
+&nbsp;&nbsp;"enabled":&nbsp;true<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-SetShuffleOff"><strong>SetShuffleOff</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetShuffleOn"><strong>SetShuffleOn</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetSleepTimerOff"><strong>SetSleepTimerOff</strong></a>(self, basestation, time=0, timediff=300)</dt></dl>
+
+<dl><dt><a name="Arlo-SetSleepTimerOn"><strong>SetSleepTimerOn</strong></a>(self, basestation, time=1636756352, timediff=0)</dt></dl>
+
+<dl><dt><a name="Arlo-SetTempAlertOff"><strong>SetTempAlertOff</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetTempAlertOn"><strong>SetTempAlertOn</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetTempAlertThresholdMax"><strong>SetTempAlertThresholdMax</strong></a>(self, basestation, number=240)</dt></dl>
+
+<dl><dt><a name="Arlo-SetTempAlertThresholdMin"><strong>SetTempAlertThresholdMin</strong></a>(self, basestation, number=200)</dt></dl>
+
+<dl><dt><a name="Arlo-SetTempRecordingOff"><strong>SetTempRecordingOff</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetTempRecordingOn"><strong>SetTempRecordingOn</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SetTempUnit"><strong>SetTempUnit</strong></a>(self, uniqueId, unit='C')</dt></dl>
+
+<dl><dt><a name="Arlo-SetVolume"><strong>SetVolume</strong></a>(self, basestation, mute=False, volume=50)</dt></dl>
+
+<dl><dt><a name="Arlo-SirenOff"><strong>SirenOff</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SirenOn"><strong>SirenOn</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-SkipTrack"><strong>SkipTrack</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-StartRecording"><strong>StartRecording</strong></a>(self, basestation, camera)</dt><dd><tt>This&nbsp;function&nbsp;causes&nbsp;the&nbsp;camera&nbsp;to&nbsp;start&nbsp;recording.<br>
+You&nbsp;can&nbsp;get&nbsp;the&nbsp;timezone&nbsp;from&nbsp;<a href="#Arlo-GetDevices">GetDevices</a>().</tt></dd></dl>
+
+<dl><dt><a name="Arlo-StartStream"><strong>StartStream</strong></a>(self, basestation, camera)</dt><dd><tt>This&nbsp;function&nbsp;returns&nbsp;the&nbsp;url&nbsp;of&nbsp;the&nbsp;rtsp&nbsp;video&nbsp;stream.<br>
+This&nbsp;stream&nbsp;needs&nbsp;to&nbsp;be&nbsp;called&nbsp;within&nbsp;30&nbsp;seconds&nbsp;or&nbsp;else&nbsp;it&nbsp;becomes&nbsp;invalid.<br>
+It&nbsp;can&nbsp;be&nbsp;streamed&nbsp;with:&nbsp;ffmpeg&nbsp;-re&nbsp;-i&nbsp;'rtsps://&lt;url&gt;'&nbsp;-acodec&nbsp;copy&nbsp;-vcodec&nbsp;copy&nbsp;test.mp4<br>
+The&nbsp;request&nbsp;to&nbsp;/users/devices/startStream&nbsp;returns:&nbsp;{&nbsp;url:rtsp://&lt;url&gt;:443/vzmodulelive?egressToken=b&lt;xx&gt;&amp;userAgent=iOS&amp;cameraId=&lt;camid&gt;}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-StopRecording"><strong>StopRecording</strong></a>(self, camera)</dt><dd><tt>This&nbsp;function&nbsp;causes&nbsp;the&nbsp;camera&nbsp;to&nbsp;stop&nbsp;recording.<br>
+You&nbsp;can&nbsp;get&nbsp;the&nbsp;timezone&nbsp;from&nbsp;<a href="#Arlo-GetDevices">GetDevices</a>().</tt></dd></dl>
+
+<dl><dt><a name="Arlo-StopStream"><strong>StopStream</strong></a>(self, basestation, camera)</dt></dl>
+
+<dl><dt><a name="Arlo-StreamRecording"><strong>StreamRecording</strong></a>(self, url, chunk_size=4096)</dt><dd><tt>Returns&nbsp;a&nbsp;generator&nbsp;that&nbsp;is&nbsp;the&nbsp;chunked&nbsp;video&nbsp;stream&nbsp;from&nbsp;the&nbsp;presignedContentUrl.<br>
+&nbsp;<br>
+url:&nbsp;presignedContentUrl</tt></dd></dl>
+
+<dl><dt><a name="Arlo-Subscribe"><strong>Subscribe</strong></a>(self, basestation)</dt><dd><tt><a href="#Arlo">Arlo</a>&nbsp;uses&nbsp;the&nbsp;EventStream&nbsp;interface&nbsp;in&nbsp;the&nbsp;browser&nbsp;to&nbsp;do&nbsp;pub/sub&nbsp;style&nbsp;messaging.<br>
+Unfortunately,&nbsp;this&nbsp;appears&nbsp;to&nbsp;be&nbsp;the&nbsp;only&nbsp;way&nbsp;<a href="#Arlo">Arlo</a>&nbsp;communicates&nbsp;these&nbsp;messages.<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;makes&nbsp;the&nbsp;initial&nbsp;GET&nbsp;request&nbsp;to&nbsp;/subscribe,&nbsp;which&nbsp;returns&nbsp;the&nbsp;EventStream&nbsp;socket.<br>
+Once&nbsp;we&nbsp;have&nbsp;that&nbsp;socket,&nbsp;the&nbsp;API&nbsp;requires&nbsp;a&nbsp;POST&nbsp;request&nbsp;to&nbsp;/notify&nbsp;with&nbsp;the&nbsp;"subscriptionsresource.<br>
+This&nbsp;call&nbsp;"registersthe&nbsp;device&nbsp;(which&nbsp;should&nbsp;be&nbsp;the&nbsp;basestation)&nbsp;so&nbsp;that&nbsp;events&nbsp;will&nbsp;be&nbsp;sent&nbsp;to&nbsp;the&nbsp;EventStream<br>
+when&nbsp;subsequent&nbsp;calls&nbsp;to&nbsp;/notify&nbsp;are&nbsp;made.<br>
+&nbsp;<br>
+Since&nbsp;this&nbsp;interface&nbsp;is&nbsp;asynchronous,&nbsp;and&nbsp;this&nbsp;is&nbsp;a&nbsp;quick&nbsp;and&nbsp;dirty&nbsp;hack&nbsp;to&nbsp;get&nbsp;this&nbsp;working,&nbsp;I'm&nbsp;using&nbsp;a&nbsp;thread<br>
+to&nbsp;listen&nbsp;to&nbsp;the&nbsp;EventStream.&nbsp;This&nbsp;thread&nbsp;puts&nbsp;events&nbsp;into&nbsp;a&nbsp;queue.&nbsp;Some&nbsp;polling&nbsp;is&nbsp;required&nbsp;(see&nbsp;<a href="#Arlo-NotifyAndGetResponse">NotifyAndGetResponse</a>())&nbsp;because<br>
+the&nbsp;event&nbsp;messages&nbsp;aren't&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;delivered&nbsp;in&nbsp;any&nbsp;specific&nbsp;order,&nbsp;but&nbsp;I&nbsp;wanted&nbsp;to&nbsp;maintain&nbsp;a&nbsp;synchronous&nbsp;style&nbsp;API.<br>
+&nbsp;<br>
+You&nbsp;generally&nbsp;shouldn't&nbsp;need&nbsp;to&nbsp;call&nbsp;<a href="#Arlo-Subscribe">Subscribe</a>()&nbsp;directly,&nbsp;although&nbsp;I'm&nbsp;leaving&nbsp;it&nbsp;"publicfor&nbsp;now.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-SubscribeToMotionEvents"><strong>SubscribeToMotionEvents</strong></a>(self, basestation, callback, timeout=120)</dt><dd><tt>Use&nbsp;this&nbsp;method&nbsp;to&nbsp;subscribe&nbsp;to&nbsp;motion&nbsp;events.&nbsp;You&nbsp;must&nbsp;provide&nbsp;a&nbsp;callback&nbsp;function&nbsp;which&nbsp;will&nbsp;get&nbsp;called&nbsp;once&nbsp;per&nbsp;motion&nbsp;event.<br>
+&nbsp;<br>
+The&nbsp;callback&nbsp;function&nbsp;should&nbsp;have&nbsp;the&nbsp;following&nbsp;signature:<br>
+def&nbsp;callback(self,&nbsp;event)<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;an&nbsp;example&nbsp;of&nbsp;handling&nbsp;a&nbsp;specific&nbsp;event,&nbsp;in&nbsp;reality,&nbsp;you'd&nbsp;probably&nbsp;want&nbsp;to&nbsp;write&nbsp;a&nbsp;callback&nbsp;for&nbsp;<a href="#Arlo-HandleEvents">HandleEvents</a>()<br>
+that&nbsp;has&nbsp;a&nbsp;big&nbsp;switch&nbsp;statement&nbsp;in&nbsp;it&nbsp;to&nbsp;handle&nbsp;all&nbsp;the&nbsp;various&nbsp;events&nbsp;<a href="#Arlo">Arlo</a>&nbsp;produces.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-ToggleCamera"><strong>ToggleCamera</strong></a>(self, basestation, camera, active=True)</dt><dd><tt>active:&nbsp;True&nbsp;-&nbsp;Camera&nbsp;is&nbsp;off.<br>
+active:&nbsp;False&nbsp;-&nbsp;Camera&nbsp;is&nbsp;on.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-TriggerAndHandleEvent"><strong>TriggerAndHandleEvent</strong></a>(self, basestation, trigger, callback, timeout=120)</dt><dd><tt>Use&nbsp;this&nbsp;method&nbsp;to&nbsp;subscribe&nbsp;to&nbsp;the&nbsp;event&nbsp;stream&nbsp;and&nbsp;provide&nbsp;a&nbsp;callback&nbsp;that&nbsp;will&nbsp;be&nbsp;called&nbsp;for&nbsp;event&nbsp;event&nbsp;received.<br>
+This&nbsp;function&nbsp;will&nbsp;allow&nbsp;you&nbsp;to&nbsp;potentially&nbsp;write&nbsp;a&nbsp;callback&nbsp;that&nbsp;can&nbsp;handle&nbsp;all&nbsp;of&nbsp;the&nbsp;events&nbsp;received&nbsp;from&nbsp;the&nbsp;event&nbsp;stream.<br>
+NOTE:&nbsp;Use&nbsp;this&nbsp;function&nbsp;if&nbsp;you&nbsp;need&nbsp;to&nbsp;run&nbsp;some&nbsp;code&nbsp;after&nbsp;subscribing&nbsp;to&nbsp;the&nbsp;eventstream,&nbsp;but&nbsp;before&nbsp;your&nbsp;callback&nbsp;to&nbsp;handle&nbsp;the&nbsp;events&nbsp;runs.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-TriggerFullFrameSnapshot"><strong>TriggerFullFrameSnapshot</strong></a>(self, basestation, camera)</dt><dd><tt>This&nbsp;function&nbsp;causes&nbsp;the&nbsp;camera&nbsp;to&nbsp;record&nbsp;a&nbsp;fullframe&nbsp;snapshot.<br>
+The&nbsp;presignedFullFrameSnapshotUrl&nbsp;url&nbsp;is&nbsp;returned.<br>
+Use&nbsp;<a href="#Arlo-DownloadSnapshot">DownloadSnapshot</a>()&nbsp;to&nbsp;download&nbsp;the&nbsp;actual&nbsp;image&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-TriggerStreamSnapshot"><strong>TriggerStreamSnapshot</strong></a>(self, basestation, camera)</dt><dd><tt>This&nbsp;function&nbsp;causes&nbsp;the&nbsp;camera&nbsp;to&nbsp;snapshot&nbsp;while&nbsp;recording.<br>
+NOTE:&nbsp;You&nbsp;MUST&nbsp;call&nbsp;<a href="#Arlo-StartStream">StartStream</a>()&nbsp;before&nbsp;calling&nbsp;this&nbsp;function.<br>
+If&nbsp;you&nbsp;call&nbsp;<a href="#Arlo-StartStream">StartStream</a>(),&nbsp;you&nbsp;have&nbsp;to&nbsp;start&nbsp;reading&nbsp;data&nbsp;from&nbsp;the&nbsp;stream,&nbsp;or&nbsp;streaming&nbsp;will&nbsp;be&nbsp;cancelled<br>
+and&nbsp;taking&nbsp;a&nbsp;snapshot&nbsp;may&nbsp;fail&nbsp;(since&nbsp;it&nbsp;requires&nbsp;the&nbsp;stream&nbsp;to&nbsp;be&nbsp;active).<br>
+&nbsp;<br>
+NOTE:&nbsp;You&nbsp;should&nbsp;not&nbsp;use&nbsp;this&nbsp;function&nbsp;is&nbsp;you&nbsp;just&nbsp;want&nbsp;a&nbsp;snapshot&nbsp;and&nbsp;aren't&nbsp;intending&nbsp;to&nbsp;stream.<br>
+Use&nbsp;<a href="#Arlo-TriggerFullFrameSnapshot">TriggerFullFrameSnapshot</a>()&nbsp;instead.<br>
+&nbsp;<br>
+NOTE:&nbsp;Use&nbsp;<a href="#Arlo-DownloadSnapshot">DownloadSnapshot</a>()&nbsp;to&nbsp;download&nbsp;the&nbsp;actual&nbsp;image&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-UnPauseTrack"><strong>UnPauseTrack</strong></a>(self, basestation)</dt></dl>
+
+<dl><dt><a name="Arlo-Unsubscribe"><strong>Unsubscribe</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;stops&nbsp;the&nbsp;EventStream&nbsp;subscription&nbsp;and&nbsp;removes&nbsp;it&nbsp;from&nbsp;the&nbsp;event_stream&nbsp;collection.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-UpdateDeviceName"><strong>UpdateDeviceName</strong></a>(self, device, name)</dt></dl>
+
+<dl><dt><a name="Arlo-UpdateDisplayOrder"><strong>UpdateDisplayOrder</strong></a>(self, body)</dt><dd><tt>This&nbsp;is&nbsp;an&nbsp;example&nbsp;of&nbsp;the&nbsp;json&nbsp;you&nbsp;would&nbsp;pass&nbsp;in&nbsp;the&nbsp;body&nbsp;to&nbsp;<a href="#Arlo-UpdateDisplayOrder">UpdateDisplayOrder</a>()&nbsp;of&nbsp;your&nbsp;devices&nbsp;in&nbsp;the&nbsp;UI.<br>
+&nbsp;<br>
+XXXXXXXXXXXXX&nbsp;is&nbsp;the&nbsp;device&nbsp;id&nbsp;of&nbsp;each&nbsp;camera.&nbsp;You&nbsp;can&nbsp;get&nbsp;this&nbsp;from&nbsp;<a href="#Arlo-GetDevices">GetDevices</a>().<br>
+{<br>
+&nbsp;&nbsp;"devices":{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"XXXXXXXXXXXXX":1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"XXXXXXXXXXXXX":2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"XXXXXXXXXXXXX":3<br>
+&nbsp;&nbsp;}<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-UpdateFriend"><strong>UpdateFriend</strong></a>(self, body)</dt><dd><tt>This&nbsp;is&nbsp;an&nbsp;example&nbsp;of&nbsp;the&nbsp;json&nbsp;you&nbsp;would&nbsp;pass&nbsp;in&nbsp;the&nbsp;body:<br>
+{<br>
+&nbsp;&nbsp;"firstName":"Some",<br>
+&nbsp;&nbsp;"lastName":"Body",<br>
+&nbsp;&nbsp;"devices":{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"XXXXXXXXXXXXX":"Camera&nbsp;1",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"XXXXXXXXXXXXX":"Camera&nbsp;2&nbsp;",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"XXXXXXXXXXXXX":"Camera&nbsp;3"<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"lastModified":1463977440911,<br>
+&nbsp;&nbsp;"adminUser":true,<br>
+&nbsp;&nbsp;"email":"user@example.com",<br>
+&nbsp;&nbsp;"id":"XXX-XXXXXXX"<br>
+}</tt></dd></dl>
+
+<dl><dt><a name="Arlo-UpdatePassword"><strong>UpdatePassword</strong></a>(self, password)</dt></dl>
+
+<dl><dt><a name="Arlo-UpdateProfile"><strong>UpdateProfile</strong></a>(self, first_name, last_name)</dt></dl>
+
+<dl><dt><a name="Arlo-__init__"><strong>__init__</strong></a>(self, username, password, google_credential_file=None)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Arlo-genTransId"><strong>genTransId</strong></a>(self, trans_type='web')</dt></dl>
+
+<dl><dt><a name="Arlo-interrupt_handler"><strong>interrupt_handler</strong></a>(self, signum, frame)</dt></dl>
+
+<dl><dt><a name="Arlo-to_timestamp"><strong>to_timestamp</strong></a>(self, dt)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>AUTH_URL</strong> = 'ocapi-app.arlo.com'</dl>
+
+<dl><dt><strong>BASE_URL</strong> = 'my.arlo.com'</dl>
+
+<dl><dt><strong>TRANSID_PREFIX</strong> = 'web'</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>string_types</strong> = (&lt;class 'str'&gt;,)</td></tr></table>
+</body></html>
